@@ -12,7 +12,7 @@
             @error('answer1')
             <div class="alert alert-danger py-1 mb-0 mt-2">回答を入力してください</div>
             @enderror
-            <label class="mt-3 fs-5" for="answer2" class="form-label">{{ $questionnaire[0]['question1'] }}</label>
+            <label class="mt-3 fs-5" for="answer2" class="form-label">{{ $questionnaire[0]['question2'] }}</label>
             <textarea rows="3" name="answer2" type="text" class="form-control" id="answer2" placeholder="回答を入力">{{ old('answer2') }}</textarea>
             @error('answer2')
             <div class="alert alert-danger py-1 mb-0 mt-2">回答を入力してください</div>
