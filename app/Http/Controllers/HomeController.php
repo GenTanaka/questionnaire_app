@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
+use App\Models\Questionnaire;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,44 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $per_page = 5;
+        $questionnaires = Questionnaire::paginate($per_page);
+        return view('home', compact('questionnaires'));
+    }
+
+    public function questionnaire($id)
+    {
+        $questionnaire = Questionnaire::where('id', '=', $id)->get();
+        $answers = Answer::where('questionnaire_id', '=', $id)
+            ->orderBy('id', 'DESC')
+            ->get();
+        return view('questionnaire', compact('questionnaire', 'answers'));
+    }
+
+    public function make()
+    {
+        return view('make');
+    }
+
+    public function makedQuestionnaire(Request $request)
+    {
+        $posts = $request->all();
+
+        $request->validate([
+            'title' => 'required',
+            'question1' => 'required',
+            'question2' => 'required',
+        ]);
+
+        DB::transaction( function() use($posts) {
+            Questionnaire::insert([
+                'title' => $posts['title'],
+                'user_id' => Auth::id(),
+                'question1' => $posts['question1'],
+                'question2' => $posts['question2']
+            ]);
+        });
+
+        return redirect(route('home'));
     }
 }

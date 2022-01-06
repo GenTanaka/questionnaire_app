@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/questionnaire/{id}', [HomeController::class, 'questionnaire'])->name('questionnaire');
+Route::get('/make', [HomeController::class, 'make'])->name('make');
+Route::post('/makedQuestionnaire', [HomeController::class, 'makedQuestionnaire'])->name('makedQuestionnaire');
