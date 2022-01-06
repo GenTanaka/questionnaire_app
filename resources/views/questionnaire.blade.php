@@ -17,7 +17,7 @@
             @endif
 
         </div>
-        <div class="bg-white mt-5">
+        <div class="bg-white my-5">
             <h3 class="my-3">{{ $questionnaire[0]['question2'] }}</h3>
             @if (empty($answers[0]))
                 <p>回答がありません</p>
@@ -29,6 +29,7 @@
                     </ul>
             @endif
         </div>
+        <a class="btn border" onClick="history.back()">戻る</a>
     </div>
 </div>
 @endsection

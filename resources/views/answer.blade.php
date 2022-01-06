@@ -18,7 +18,7 @@
             <div class="alert alert-danger py-1 mb-0 mt-2">回答を入力してください</div>
             @enderror
             <div class="button d-flex justify-content-between mt-5">
-                <a class="btn border" href="#">戻る</a>
+                <a class="btn border" onClick="history.back()">戻る</a>
                 <input class="btn btn-primary" type="submit" value="回答">
             </div>
         </form>
