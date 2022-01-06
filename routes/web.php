@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::get('/questionnaire/{id}', [HomeController::class, 'questionnaire'])->name('questionnaire');
+
 Route::get('/make', [HomeController::class, 'make'])->name('make');
 Route::post('/makedQuestionnaire', [HomeController::class, 'makedQuestionnaire'])->name('makedQuestionnaire');
+
+Route::get('/answer/{id}', [HomeController::class, 'answer'])->name('answer');
+Route::post('/saveAnswer', [HomeController::class, 'saveAnswer'])->name('saveAnswer');

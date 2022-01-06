@@ -11,12 +11,12 @@
             @error('title')
             <div class="alert alert-danger py-1 mb-0 mt-2">タイトルを入力してください</div>
             @enderror
-            <label class="mt-3 fs-4" for="title" class="form-label">質問1</label>
+            <label class="mt-3 fs-4" for="question1" class="form-label">質問1</label>
             <input name="question1" type="text" class="form-control" id="question1" placeholder="質問1の内容を入力" value="{{ old('question1') }}">
             @error('question1')
             <div class="alert alert-danger py-1 mb-0 mt-2">質問1を入力してください</div>
             @enderror
-            <label class="mt-3 fs-4" for="title" class="form-label">質問2</label>
+            <label class="mt-3 fs-4" for="question2" class="form-label">質問2</label>
             <input name="question2" type="text" class="form-control" id="question2" placeholder="質問2の内容を入力" value="{{ old('question2') }}">
             @error('question2')
             <div class="alert alert-danger py-1 mb-0 mt-2">質問2を入力してください</div>

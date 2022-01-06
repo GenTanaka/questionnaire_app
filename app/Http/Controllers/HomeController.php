@@ -68,4 +68,31 @@ class HomeController extends Controller
 
         return redirect(route('home'));
     }
+
+    public function answer($id)
+    {
+        $questionnaire = Questionnaire::where('id', '=', $id)->get();
+        return view('answer', compact('questionnaire'));
+    }
+
+    public function saveAnswer(Request $request)
+    {
+        $posts = $request->all();
+
+        $request->validate([
+            'answer1' => 'required',
+            'answer2' => 'required',
+        ]);
+
+        DB::transaction(function() use($posts) {
+            Answer::insert([
+                'questionnaire_id' => $posts['questionnaire_id'],
+                'user_id' => Auth::id(),
+                'answer1' => $posts['answer1'],
+                'answer2' => $posts['answer2']
+            ]);
+        });
+
+        return redirect(route('home'));
+    }
 }

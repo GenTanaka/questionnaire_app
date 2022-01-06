@@ -12,7 +12,7 @@
                     </h3>
                     <div class="answers-contents border-start">
                         <a href="{{ route('questionnaire', ['id' => $questionnaire['id']]) }}" class="d-block border-bottom px-3">回答一覧</a>
-                        <a href="#" class="d-block px-3">回答する</a>
+                        <a href="{{ route('answer', ['id' => $questionnaire['id']]) }}" class="d-block px-3">回答する</a>
                     </div>
                 </div>
             </div>
