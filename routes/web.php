@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/questionnaire/{id}', [HomeController::class, 'questionnaire'])->name('questionnaire');
