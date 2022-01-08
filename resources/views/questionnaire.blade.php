@@ -11,11 +11,10 @@
             @else
                 <ul class="mt-3">
                         @foreach ($answers as $answer)
-                            <li class="mt-2">{{ $answer['answer1'] }}</li>
+                            <li class="mt-2">{!! $answer['answer1'] !!}</li>
                         @endforeach
                     </ul>
             @endif
-
         </div>
         <div class="bg-white my-5">
             <h3 class="my-3">{{ $questionnaire[0]['question2'] }}</h3>
@@ -24,7 +23,7 @@
             @else
                 <ul>
                         @foreach ($answers as $answer)
-                            <li class="mt-2">{{ $answer['answer2'] }}</li>
+                            <li class="mt-2">{!! $answer['answer2'] !!}</li>
                         @endforeach
                     </ul>
             @endif

@@ -24,3 +24,6 @@ Route::post('/makedQuestionnaire', [HomeController::class, 'makedQuestionnaire']
 
 Route::get('/answer/{id}', [HomeController::class, 'answer'])->name('answer');
 Route::post('/saveAnswer', [HomeController::class, 'saveAnswer'])->name('saveAnswer');
+
+Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('edit');
+Route::post('/saveEdit', [HomeController::class, 'saveEdit'])->name('saveEdit');

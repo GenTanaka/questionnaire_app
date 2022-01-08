@@ -19,6 +19,7 @@ class CreateQuestionnairesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('question1', 255);
             $table->string('question2', 255);
+            $table->boolean('is_release');
             $table->softDeletes();
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
