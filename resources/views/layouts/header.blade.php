@@ -14,12 +14,6 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-1">
-                    <li class="me-2 nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">一覧</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('make') }}">作成</a>
-                    </li>
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
@@ -34,6 +28,12 @@
                             </li>
                         @endif
                     @else
+                        <li class="me-2 nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">一覧</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('make') }}">作成</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
